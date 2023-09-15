@@ -1,5 +1,7 @@
 package KirillNegrobov.ShoppingList.Activities
 
+import KirillNegrobov.ShoppingList.Fragments.FragmentManager
+import KirillNegrobov.ShoppingList.Fragments.NoteFragment
 import KirillNegrobov.ShoppingList.R
 import KirillNegrobov.ShoppingList.databinding.ActivityMainBinding
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+        setBottomNavListener()
     }
 
     private fun setBottomNavListener(){
@@ -21,13 +24,13 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.notes->{
-
+                    FragmentManager.setFragment(NoteFragment.newInstance(),this)
                 }
                 R.id.shop_list->{
 
                 }
                 R.id.new_item->{
-
+                    FragmentManager.currentFrag?.onClickNew()
                 }
             }
             true

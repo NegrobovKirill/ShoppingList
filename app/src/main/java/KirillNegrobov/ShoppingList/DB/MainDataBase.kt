@@ -25,7 +25,7 @@ abstract class MainDataBase : RoomDatabase() {
                     context.applicationContext,
                     MainDataBase::class.java,
                     "shopping_list.bd"
-                ).build()
+                ).allowMainThreadQueries().build()
                 instance
             }
         }
